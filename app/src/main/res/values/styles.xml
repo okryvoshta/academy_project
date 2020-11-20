@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="back">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="name" parent="storyline">
+        <item name="android:textSize">40sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="tag">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/pink</item>
+    </style>
+
+    <style name="review">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="storyline">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:shadowColor">@color/shadow</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">6</item>
+        <item name="android:shadowRadius">12</item>
+    </style>
+
+    <style name="description">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="cast" parent="storyline">
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="actor">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/actor_color</item>
+    </style>
+
+</resources>
