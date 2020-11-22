@@ -3,7 +3,7 @@
 
     <style name="back">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/white_half_transparent</item>
     </style>
 
     <style name="name" parent="storyline">
