@@ -206,7 +206,7 @@
             app:layout_constraintTop_toBottomOf="@id/description" />
 
         <ImageView
-            android:id="@+id/robert_down_icon"
+            android:id="@+id/robert_downey_icon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -216,7 +216,7 @@
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/heading"
-            app:srcCompat="@drawable/robert_down" />
+            app:srcCompat="@drawable/robert_downey" />
 
         <ImageView
             android:id="@+id/chris_evans_icon"
@@ -226,8 +226,8 @@
             android:layout_marginEnd="4dp"
             android:adjustViewBounds="true"
             app:layout_constraintEnd_toStartOf="@id/mark_ruffalo_icon"
-            app:layout_constraintStart_toEndOf="@+id/robert_down_icon"
-            app:layout_constraintTop_toTopOf="@+id/robert_down_icon"
+            app:layout_constraintStart_toEndOf="@+id/robert_downey_icon"
+            app:layout_constraintTop_toTopOf="@+id/robert_downey_icon"
             app:srcCompat="@drawable/chris_evans" />
 
         <ImageView
@@ -239,7 +239,7 @@
             android:adjustViewBounds="true"
             app:layout_constraintEnd_toStartOf="@id/chris_hemsw_icon"
             app:layout_constraintStart_toEndOf="@+id/chris_evans_icon"
-            app:layout_constraintTop_toTopOf="@+id/robert_down_icon"
+            app:layout_constraintTop_toTopOf="@+id/robert_downey_icon"
             app:srcCompat="@drawable/mark_ruffalo" />
 
         <ImageView
@@ -250,7 +250,7 @@
             android:adjustViewBounds="true"
             app:layout_constraintEnd_toEndOf="@+id/name"
             app:layout_constraintStart_toEndOf="@+id/mark_ruffalo_icon"
-            app:layout_constraintTop_toTopOf="@+id/robert_down_icon"
+            app:layout_constraintTop_toTopOf="@+id/robert_downey_icon"
             app:srcCompat="@drawable/chris_hemsw" />
 
         <TextView
@@ -262,9 +262,9 @@
             android:lineSpacingExtra="2sp"
             android:text="@string/robert_down"
             android:textAppearance="@style/actor"
-            app:layout_constraintEnd_toEndOf="@+id/robert_down_icon"
-            app:layout_constraintStart_toStartOf="@+id/robert_down_icon"
-            app:layout_constraintTop_toBottomOf="@id/robert_down_icon" />
+            app:layout_constraintEnd_toEndOf="@+id/robert_downey_icon"
+            app:layout_constraintStart_toStartOf="@+id/robert_downey_icon"
+            app:layout_constraintTop_toBottomOf="@id/robert_downey_icon" />
 
         <TextView
             android:id="@+id/chris_evans"
