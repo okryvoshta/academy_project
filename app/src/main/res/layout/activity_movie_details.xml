@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:background="@drawable/orig"
+            android:src="@drawable/orig"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,27 +33,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <TextView
             android:id="@+id/path"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="59dp"
-            android:src="@drawable/ic_path"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:alpha="0.5"
+            android:drawablePadding="8dp"
             android:text="@string/back"
             android:textAppearance="@style/back"
-            app:layout_constraintBottom_toBottomOf="@+id/path"
-            app:layout_constraintStart_toEndOf="@+id/path"
-            app:layout_constraintTop_toTopOf="@+id/path" />
+            app:drawableStartCompat="@drawable/ic_path"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/name"
@@ -69,41 +60,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orig" />
 
-        <View
-            android:id="@+id/rectangle"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+        <TextView
+            android:id="@+id/ranking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="8dp"
             android:alpha="0.9"
-            android:background="@drawable/rectangle"
+            android:background="@drawable/rect_rounded_5dp"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="@string/rank13plus"
+            android:textAppearance="@style/back"
             app:layout_constraintBottom_toTopOf="@+id/name"
             app:layout_constraintStart_toStartOf="@+id/name" />
 
         <TextView
-            android:id="@+id/contentRanking"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/rank13plus"
-            android:textAppearance="@style/back"
-            app:layout_constraintBottom_toBottomOf="@+id/rectangle"
-            app:layout_constraintEnd_toEndOf="@+id/rectangle"
-            app:layout_constraintStart_toStartOf="@+id/rectangle"
-            app:layout_constraintTop_toTopOf="@+id/rectangle" />
-
-        <TextView
             android:id="@+id/tag"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
             android:lineSpacingExtra="4sp"
             android:text="@string/tag"
             android:textAppearance="@style/tag"
+            app:layout_constraintEnd_toEndOf="@+id/name"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -120,41 +102,37 @@
             android:id="@+id/star2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3.25dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/space_between_stars"
             android:src="@drawable/ic_star_icon"
             app:layout_constraintStart_toEndOf="@+id/star1"
-            app:layout_constraintTop_toBottomOf="@+id/tag" />
+            app:layout_constraintTop_toTopOf="@+id/star1" />
 
         <ImageView
             android:id="@+id/star3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3.25dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/space_between_stars"
             android:src="@drawable/ic_star_icon"
             app:layout_constraintStart_toEndOf="@+id/star2"
-            app:layout_constraintTop_toBottomOf="@+id/tag" />
+            app:layout_constraintTop_toTopOf="@+id/star1" />
 
         <ImageView
             android:id="@+id/star4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3.25dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/space_between_stars"
             android:src="@drawable/ic_star_icon"
             app:layout_constraintStart_toEndOf="@+id/star3"
-            app:layout_constraintTop_toBottomOf="@+id/tag" />
+            app:layout_constraintTop_toTopOf="@+id/star1" />
 
         <ImageView
             android:id="@+id/star5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3.25dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/space_between_stars"
             android:src="@drawable/ic_star_icon_bg"
             app:layout_constraintStart_toEndOf="@+id/star4"
-            app:layout_constraintTop_toBottomOf="@+id/tag" />
+            app:layout_constraintTop_toTopOf="@+id/star1" />
 
         <TextView
             android:id="@+id/review_count"
