@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="corner_radius">5dp</dimen>
+    <item name="space_between_stars" type="dimen" format="float">3.25dp</item>
 </resources>
