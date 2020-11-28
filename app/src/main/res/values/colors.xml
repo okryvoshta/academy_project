@@ -16,4 +16,6 @@
     <color name="gray">#6D6D80</color>
     <color name="pink">#FF3466</color>
     <color name="actor_color">#D8D8D8</color>
+    <color name="border">#404056</color>
+    <color name="transparent">#00000000</color>
 </resources>

@@ -6,9 +6,18 @@
         <item name="android:textColor">@color/white_half_transparent</item>
     </style>
 
+    <style name="ranking">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="name" parent="storyline">
         <item name="android:textSize">40sp</item>
         <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="name_small" parent="name">
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="tag">
@@ -16,10 +25,18 @@
         <item name="android:textColor">@color/pink</item>
     </style>
 
+    <style name="tag_small" parent="tag">
+        <item name="android:textSize">8sp</item>
+    </style>
+
     <style name="review">
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="review_small" parent="review">
+        <item name="android:textSize">8sp</item>
     </style>
 
     <style name="storyline">

@@ -10,8 +10,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="back">Back</string>
-    <string name="name1">Avengers:\nEnd Game</string>
-    <string name="name">Avengers:\nEnd Game</string>
+    <string name="name">Avengers: End Game</string>
     <string name="rank13plus">13+</string>
     <string name="tag">Action, Adventure, Fantasy</string>
     <string name="review_count">125 Reviews</string>
@@ -22,4 +21,6 @@
     <string name="chris_hemsw">Chris Hemsworth</string>
     <string name="mark_ruffalo">Mark Ruffalo</string>
     <string name="chris_evans">Chris Evans</string>
+    <string name="movies_list">Movies list</string>
+    <string name="duration">137 min</string>
 </resources>

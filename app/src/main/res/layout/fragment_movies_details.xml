@@ -5,30 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bg_color"
-    tools:context=".MovieDetailsActivity">
+    tools:context=".FragmentMoviesDetails">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        tools:context=".MovieDetailsActivity">
+        android:paddingBottom="20dp">
 
         <ImageView
             android:id="@+id/orig"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:foreground="@drawable/mask"
             android:src="@drawable/orig"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/mask"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/mask"
-            app:layout_constraintBottom_toBottomOf="@id/orig"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -64,15 +54,12 @@
             android:id="@+id/ranking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginBottom="8dp"
-            android:alpha="0.9"
             android:background="@drawable/rect_rounded_5dp"
             android:gravity="center"
             android:padding="4dp"
             android:text="@string/rank13plus"
-            android:textAppearance="@style/back"
+            android:textAppearance="@style/ranking"
             app:layout_constraintBottom_toTopOf="@+id/name"
             app:layout_constraintStart_toStartOf="@+id/name" />
 
