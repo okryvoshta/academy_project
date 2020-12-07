@@ -17,11 +17,15 @@ class FragmentMoviesList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<View>(R.id.movie).setOnClickListener {
-            activity?.apply {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, FragmentMoviesDetails()).addToBackStack(null)
-                    .commit()
-            }
+            openMoviesDetails()
+        }
+    }
+
+    private fun openMoviesDetails() {
+        activity?.apply {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, FragmentMoviesDetails()).addToBackStack(null)
+                .commit()
         }
     }
 
