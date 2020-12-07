@@ -10,9 +10,15 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="back">Back</string>
-    <string name="name">Avengers: End Game</string>
+    <string name="name_avengers">Avengers: End Game</string>
+    <string name="name_tenet">Tenet</string>
+    <string name="name_black_widow">Black Widow</string>
+    <string name="name_wonder_woman">Wonder Woman 1984</string>
     <string name="rank13plus">13+</string>
-    <string name="tag">Action, Adventure, Fantasy</string>
+    <string name="tag_avengers">Action, Adventure, Fantasy</string>
+    <string name="tag_tenet">Action, Sci-Fi, Thriller</string>
+    <string name="tag_black_widow">Action, Adventure, Sci-Fi</string>
+    <string name="tag_wonder_woman">Action, Adventure, Fantasy</string>
     <string name="review_count">125 Reviews</string>
     <string name="storyline">Storyline</string>
     <string name="description">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
