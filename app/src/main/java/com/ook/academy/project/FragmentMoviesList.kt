@@ -19,7 +19,6 @@ class FragmentMoviesList : Fragment(), IMovieListCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<RecyclerView>(R.id.list).apply {
-            layoutManager = GridLayoutManager(context, 2)
             adapter = MovieAdapter(this@FragmentMoviesList)
         }
     }

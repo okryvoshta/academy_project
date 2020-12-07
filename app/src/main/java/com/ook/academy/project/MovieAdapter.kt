@@ -5,9 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.recyclerview.widget.RecyclerView
+import com.ook.academy.project.pojo.MovieData
 
 class MovieAdapter(val callback: IMovieListCallback) : RecyclerView.Adapter<MovieViewHolder>() {
 
@@ -42,8 +41,3 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 }
 
-class MovieData(
-    @DrawableRes val coverId: Int,
-    @StringRes val nameId: Int,
-    @StringRes val tagId: Int,
-)

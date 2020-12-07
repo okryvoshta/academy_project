@@ -170,105 +170,20 @@
             app:layout_constraintStart_toStartOf="@id/name"
             app:layout_constraintTop_toBottomOf="@id/description" />
 
-        <ImageView
-            android:id="@+id/robert_downey_icon"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="4dp"
             android:adjustViewBounds="true"
-            app:layout_constraintEnd_toStartOf="@id/chris_evans_icon"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@+id/name"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/heading"
-            app:srcCompat="@drawable/robert_downey" />
-
-        <ImageView
-            android:id="@+id/chris_evans_icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:adjustViewBounds="true"
-            app:layout_constraintEnd_toStartOf="@id/mark_ruffalo_icon"
-            app:layout_constraintStart_toEndOf="@+id/robert_downey_icon"
-            app:layout_constraintTop_toTopOf="@+id/robert_downey_icon"
-            app:srcCompat="@drawable/chris_evans" />
-
-        <ImageView
-            android:id="@+id/mark_ruffalo_icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:adjustViewBounds="true"
-            app:layout_constraintEnd_toStartOf="@id/chris_hemsw_icon"
-            app:layout_constraintStart_toEndOf="@+id/chris_evans_icon"
-            app:layout_constraintTop_toTopOf="@+id/robert_downey_icon"
-            app:srcCompat="@drawable/mark_ruffalo" />
-
-        <ImageView
-            android:id="@+id/chris_hemsw_icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:adjustViewBounds="true"
-            app:layout_constraintEnd_toEndOf="@+id/name"
-            app:layout_constraintStart_toEndOf="@+id/mark_ruffalo_icon"
-            app:layout_constraintTop_toTopOf="@+id/robert_downey_icon"
-            app:srcCompat="@drawable/chris_hemsw" />
-
-        <TextView
-            android:id="@+id/robert_down"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="2sp"
-            android:text="@string/robert_down"
-            android:textAppearance="@style/actor"
-            app:layout_constraintEnd_toEndOf="@+id/robert_downey_icon"
-            app:layout_constraintStart_toStartOf="@+id/robert_downey_icon"
-            app:layout_constraintTop_toBottomOf="@id/robert_downey_icon" />
-
-        <TextView
-            android:id="@+id/chris_evans"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="2sp"
-            android:text="@string/chris_evans"
-            android:textAppearance="@style/actor"
-            app:layout_constraintEnd_toEndOf="@+id/chris_evans_icon"
-            app:layout_constraintStart_toStartOf="@+id/chris_evans_icon"
-            app:layout_constraintTop_toBottomOf="@id/chris_evans_icon" />
-
-        <TextView
-            android:id="@+id/mark_ruffalo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="2sp"
-            android:text="@string/mark_ruffalo"
-            android:textAppearance="@style/actor"
-            app:layout_constraintEnd_toEndOf="@+id/mark_ruffalo_icon"
-            app:layout_constraintStart_toStartOf="@+id/mark_ruffalo_icon"
-            app:layout_constraintTop_toBottomOf="@id/mark_ruffalo_icon" />
-
-        <TextView
-            android:id="@+id/chris_hemsw"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="2sp"
-            android:text="@string/chris_hemsw"
-            android:textAppearance="@style/actor"
-            app:layout_constraintEnd_toEndOf="@+id/chris_hemsw_icon"
-            app:layout_constraintStart_toStartOf="@+id/chris_hemsw_icon"
-            app:layout_constraintTop_toBottomOf="@id/chris_hemsw_icon" />
+            tools:itemCount="4"
+            tools:listitem="@layout/view_holder_actor"
+            android:orientation="horizontal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

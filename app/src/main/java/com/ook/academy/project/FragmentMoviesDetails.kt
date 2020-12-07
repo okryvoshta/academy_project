@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 
 class FragmentMoviesDetails : Fragment() {
 
@@ -40,5 +41,6 @@ class FragmentMoviesDetails : Fragment() {
         view.findViewById<View>(R.id.path).setOnClickListener {
             activity?.onBackPressed()
         }
+        view.findViewById<RecyclerView>(R.id.list).adapter = ActorAdapter()
     }
 }
