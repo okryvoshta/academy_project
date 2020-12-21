@@ -6,20 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.ook.academy.project.pojo.MovieData
 
 class FragmentMoviesDetails : Fragment() {
+
+    private lateinit var coverIV: ImageView
+    private lateinit var nameTV: TextView
+    private lateinit var tagTV: TextView
+    private lateinit var list: RecyclerView
 
     companion object {
         private const val PARAM_POSITION = "position"
 
         fun newInstance(position: Int): FragmentMoviesDetails {
-            val result = FragmentMoviesDetails()
-            val args = Bundle(1)
-            args.putInt(PARAM_POSITION, position)
-            result.arguments = args
-            return result
+            return FragmentMoviesDetails().apply {
+                arguments = bundleOf(PARAM_POSITION to position)
+            }
         }
     }
 
@@ -33,14 +38,22 @@ class FragmentMoviesDetails : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data = MockData.movies[requireArguments().getInt(PARAM_POSITION)]
+        coverIV = view.findViewById(R.id.movie_image)
+        nameTV = view.findViewById(R.id.name)
+        tagTV = view.findViewById(R.id.tag)
+        list = view.findViewById(R.id.list)
 
-        view.findViewById<ImageView>(R.id.movie_image).setImageResource(data.coverId)
-        view.findViewById<TextView>(R.id.name).setText(data.nameId)
-        view.findViewById<TextView>(R.id.tag).setText(data.tagId)
         view.findViewById<View>(R.id.path).setOnClickListener {
             activity?.onBackPressed()
         }
-        view.findViewById<RecyclerView>(R.id.list).adapter = ActorAdapter()
+
+        setMovieData(MockData.movies[requireArguments().getInt(PARAM_POSITION)])
+        list.adapter = ActorAdapter()
+    }
+
+    private fun setMovieData(movie: MovieData) {
+        coverIV.setImageResource(movie.coverId)
+        nameTV.setText(movie.nameId)
+        tagTV.setText(movie.tagId)
     }
 }
