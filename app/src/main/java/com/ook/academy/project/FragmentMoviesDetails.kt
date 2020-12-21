@@ -3,13 +3,15 @@ package com.ook.academy.project
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.ook.academy.project.pojo.MovieData
+import com.bumptech.glide.Glide
+import com.ook.academy.project.data.Movie
 
 class FragmentMoviesDetails : Fragment() {
 
@@ -19,11 +21,13 @@ class FragmentMoviesDetails : Fragment() {
     private lateinit var list: RecyclerView
 
     companion object {
-        private const val PARAM_POSITION = "position"
+        private const val MOVIE_PARAM = "movie"
 
-        fun newInstance(position: Int): FragmentMoviesDetails {
+        fun newInstance(movie: Movie): FragmentMoviesDetails {
             return FragmentMoviesDetails().apply {
-                arguments = bundleOf(PARAM_POSITION to position)
+                val bundle = Bundle()
+                bundle.putSerializable(MOVIE_PARAM, movie)
+                arguments = bundle
             }
         }
     }
@@ -47,13 +51,18 @@ class FragmentMoviesDetails : Fragment() {
             activity?.onBackPressed()
         }
 
-        setMovieData(MockData.movies[requireArguments().getInt(PARAM_POSITION)])
-        list.adapter = ActorAdapter()
+        setMovieData(requireArguments().getSerializable(MOVIE_PARAM)!! as Movie)
     }
 
-    private fun setMovieData(movie: MovieData) {
-        coverIV.setImageResource(movie.coverId)
-        nameTV.setText(movie.nameId)
-        tagTV.setText(movie.tagId)
+    private fun setMovieData(movie: Movie) {
+        Glide.with(coverIV).load(movie.poster).into(coverIV)
+        nameTV.text = movie.title
+        tagTV.text = movie.genres.joinToString { it.name }
+        if (movie.actors.isEmpty()) {
+            list.visibility = GONE
+        } else {
+            list.visibility = VISIBLE
+            list.adapter = ActorAdapter(movie.actors)
+        }
     }
 }

@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ook.academy.project.pojo.ActorData
+import com.bumptech.glide.Glide
+import com.ook.academy.project.data.Actor
 
-class ActorAdapter() : RecyclerView.Adapter<ActorViewHolder>() {
+class ActorAdapter(val actors: List<Actor>) : RecyclerView.Adapter<ActorViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorViewHolder {
         return ActorViewHolder(
@@ -17,11 +18,11 @@ class ActorAdapter() : RecyclerView.Adapter<ActorViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ActorViewHolder, position: Int) {
-        holder.bind(MockData.actors[position])
+        holder.bind(actors[position])
 
     }
 
-    override fun getItemCount(): Int = MockData.movies.size
+    override fun getItemCount(): Int = actors.size
 
 }
 
@@ -30,9 +31,9 @@ class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val coverImageView: ImageView = itemView.findViewById(R.id.actor_image)
     private val nameTextView: TextView = itemView.findViewById(R.id.actor_name)
 
-    fun bind(data: ActorData) {
-        coverImageView.setImageResource(data.coverId)
-        nameTextView.setText(data.nameId)
+    fun bind(data: Actor) {
+        Glide.with(coverImageView).load(data.picture).into(coverImageView)
+        nameTextView.setText(data.name)
     }
 }
 

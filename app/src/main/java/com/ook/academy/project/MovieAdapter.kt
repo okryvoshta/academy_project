@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ook.academy.project.pojo.MovieData
+import com.bumptech.glide.Glide
+import com.ook.academy.project.data.Movie
 
-class MovieAdapter(val callback: IMovieListCallback) : RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter(private val callback: IMovieListCallback, private val movies: List<Movie>) :
+    RecyclerView.Adapter<MovieViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -18,13 +20,14 @@ class MovieAdapter(val callback: IMovieListCallback) : RecyclerView.Adapter<Movi
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(MockData.movies[position])
+        val movie = movies[position]
+        holder.bind(movie)
         holder.itemView.setOnClickListener {
-            callback.handleClick(position)
+            callback.openMovie(movie)
         }
     }
 
-    override fun getItemCount(): Int = MockData.movies.size
+    override fun getItemCount(): Int = movies.size
 
 }
 
@@ -34,10 +37,12 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val tagTextView: TextView = itemView.findViewById(R.id.tag)
     private val nameTextView: TextView = itemView.findViewById(R.id.name)
 
-    fun bind(data: MovieData) {
-        coverImageView.setImageResource(data.coverId)
-        nameTextView.setText(data.nameId)
-        tagTextView.setText(data.tagId)
+    fun bind(data: Movie) {
+        Glide.with(coverImageView.context)
+            .load(data.poster)
+            .into(coverImageView)
+        nameTextView.text = data.title
+        tagTextView.text = data.genres.joinToString { it.name }
     }
 }
 

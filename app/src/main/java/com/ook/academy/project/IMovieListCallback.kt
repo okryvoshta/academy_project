@@ -1,5 +1,7 @@
 package com.ook.academy.project
 
+import com.ook.academy.project.data.Movie
+
 interface IMovieListCallback {
-    fun handleClick(position: Int)
+    fun openMovie(position: Movie)
 }
