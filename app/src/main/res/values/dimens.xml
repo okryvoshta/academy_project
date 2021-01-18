@@ -2,6 +2,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="corner_radius">5dp</dimen>
     <dimen name="space_between_stars">3.25dp</dimen>
-    <dimen name="space_between_small_stars">2dp</dimen>
+<!--    <dimen name="space_between_small_stars">2dp</dimen>-->
     <dimen name="small_star_size">8dp</dimen>
+    <dimen name="small_rating_width">48dp</dimen>
 </resources>

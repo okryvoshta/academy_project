@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -36,6 +37,7 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val coverImageView: ImageView = itemView.findViewById(R.id.movie_image)
     private val tagTextView: TextView = itemView.findViewById(R.id.tag)
     private val nameTextView: TextView = itemView.findViewById(R.id.name)
+    private val ratingView: RatingBar = itemView.findViewById(R.id.rating)
 
     fun bind(data: Movie) {
         Glide.with(coverImageView.context)
@@ -43,6 +45,7 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .into(coverImageView)
         nameTextView.text = data.title
         tagTextView.text = data.genres.joinToString { it.name }
+        ratingView.rating = data.ratings / 2
     }
 }
 

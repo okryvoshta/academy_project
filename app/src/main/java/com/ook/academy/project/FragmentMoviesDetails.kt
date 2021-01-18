@@ -7,6 +7,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ class FragmentMoviesDetails : Fragment() {
     private lateinit var nameTV: TextView
     private lateinit var tagTV: TextView
     private lateinit var list: RecyclerView
+    private lateinit var rating: RatingBar
 
     companion object {
         private const val MOVIE_PARAM = "movie"
@@ -46,6 +48,7 @@ class FragmentMoviesDetails : Fragment() {
         nameTV = view.findViewById(R.id.name)
         tagTV = view.findViewById(R.id.tag)
         list = view.findViewById(R.id.list)
+        rating = view.findViewById(R.id.rating)
 
         view.findViewById<View>(R.id.path).setOnClickListener {
             activity?.onBackPressed()
@@ -58,6 +61,7 @@ class FragmentMoviesDetails : Fragment() {
         Glide.with(coverIV).load(movie.poster).into(coverIV)
         nameTV.text = movie.title
         tagTV.text = movie.genres.joinToString { it.name }
+        rating.rating = movie.ratings / 2
         if (movie.actors.isEmpty()) {
             list.visibility = GONE
         } else {
