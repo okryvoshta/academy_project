@@ -28,7 +28,7 @@ class FragmentMoviesDetails : Fragment() {
         fun newInstance(movie: Movie): FragmentMoviesDetails {
             return FragmentMoviesDetails().apply {
                 val bundle = Bundle()
-                bundle.putSerializable(MOVIE_PARAM, movie)
+                bundle.putParcelable(MOVIE_PARAM, movie)
                 arguments = bundle
             }
         }
@@ -54,7 +54,7 @@ class FragmentMoviesDetails : Fragment() {
             activity?.onBackPressed()
         }
 
-        setMovieData(requireArguments().getSerializable(MOVIE_PARAM)!! as Movie)
+        requireArguments().getParcelable<Movie>(MOVIE_PARAM)?.let { setMovieData(it) }
     }
 
     private fun setMovieData(movie: Movie) {
