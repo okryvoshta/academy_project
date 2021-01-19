@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ook.academy.project.data.Movie
@@ -21,6 +22,8 @@ class FragmentMoviesDetails : Fragment() {
     private lateinit var tagTV: TextView
     private lateinit var list: RecyclerView
     private lateinit var rating: RatingBar
+
+    private lateinit var viewModel: MoviesViewModel
 
     companion object {
         private const val MOVIE_PARAM = "movie"
@@ -50,11 +53,19 @@ class FragmentMoviesDetails : Fragment() {
         list = view.findViewById(R.id.list)
         rating = view.findViewById(R.id.rating)
 
+        viewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelWithRepositoryFactory(Repository(requireActivity().applicationContext))
+        ).get(MoviesViewModel::class.java)
+
         view.findViewById<View>(R.id.path).setOnClickListener {
-            activity?.onBackPressed()
+            viewModel.closeMovieDetails()
         }
 
-        requireArguments().getParcelable<Movie>(MOVIE_PARAM)?.let { setMovieData(it) }
+        viewModel.movie.observe(viewLifecycleOwner) { movie ->
+            movie?.let { setMovieData(it) }
+        }
+
     }
 
     private fun setMovieData(movie: Movie) {
