@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,7 @@ class FragmentMoviesDetails : Fragment() {
     private lateinit var tagTV: TextView
     private lateinit var list: RecyclerView
     private lateinit var rating: RatingBar
+    private lateinit var loader: View
 
     private lateinit var viewModel: MovieDetailsViewModel
 
@@ -56,6 +58,7 @@ class FragmentMoviesDetails : Fragment() {
         tagTV = view.findViewById(R.id.tag)
         list = view.findViewById(R.id.list)
         rating = view.findViewById(R.id.rating)
+        loader = view.findViewById(R.id.loader)
 
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedMainViewModel::class.java)
         viewModel = ViewModelProvider(
@@ -74,7 +77,12 @@ class FragmentMoviesDetails : Fragment() {
         viewModel.movie.observe(viewLifecycleOwner) { movie ->
             movie?.let { setMovieData(it) }
         }
+        viewModel.loading.observe(viewLifecycleOwner, ::setLoading)
 
+    }
+
+    private fun setLoading(loading: Boolean) {
+        loader.isVisible = loading
     }
 
     private fun setMovieData(movie: Movie) {
