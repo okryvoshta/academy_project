@@ -1,4 +1,4 @@
-package com.ook.academy.project
+package com.ook.academy.project.ui.movie_list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +8,11 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.ook.academy.project.R
 import com.ook.academy.project.data.Movie
 
 class MovieAdapter(private val callback: IMovieListCallback, private val movies: List<Movie>) :
     RecyclerView.Adapter<MovieViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         return MovieViewHolder(

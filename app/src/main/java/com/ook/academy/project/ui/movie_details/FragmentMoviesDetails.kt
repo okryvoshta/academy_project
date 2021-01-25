@@ -1,4 +1,4 @@
-package com.ook.academy.project
+package com.ook.academy.project.ui.movie_details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,30 +9,34 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.ook.academy.project.ActorAdapter
+import com.ook.academy.project.R
 import com.ook.academy.project.data.Movie
+import com.ook.academy.project.model.MovieRepository
+import com.ook.academy.project.ui.SharedMainViewModel
 
 class FragmentMoviesDetails : Fragment() {
 
+    private lateinit var sharedViewModel: SharedMainViewModel
     private lateinit var coverIV: ImageView
     private lateinit var nameTV: TextView
     private lateinit var tagTV: TextView
     private lateinit var list: RecyclerView
     private lateinit var rating: RatingBar
 
-    private lateinit var viewModel: MoviesViewModel
+    private lateinit var viewModel: MovieDetailsViewModel
 
     companion object {
-        private const val MOVIE_PARAM = "movie"
+        private const val MOVIE_ID_PARAM = "movie"
 
-        fun newInstance(movie: Movie): FragmentMoviesDetails {
+        fun newInstance(movieId: Int): FragmentMoviesDetails {
             return FragmentMoviesDetails().apply {
-                val bundle = Bundle()
-                bundle.putParcelable(MOVIE_PARAM, movie)
-                arguments = bundle
+                arguments = bundleOf(MOVIE_ID_PARAM to movieId)
             }
         }
     }
@@ -53,13 +57,18 @@ class FragmentMoviesDetails : Fragment() {
         list = view.findViewById(R.id.list)
         rating = view.findViewById(R.id.rating)
 
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedMainViewModel::class.java)
         viewModel = ViewModelProvider(
-            requireActivity(),
-            ViewModelWithRepositoryFactory(Repository(requireActivity().applicationContext))
-        ).get(MoviesViewModel::class.java)
+            this,
+            MovieDetailsViewModelProvider(
+                MovieRepository(
+                    requireActivity().applicationContext
+                ), requireArguments().getInt(MOVIE_ID_PARAM)
+            )
+        ).get(MovieDetailsViewModel::class.java)
 
         view.findViewById<View>(R.id.path).setOnClickListener {
-            viewModel.closeMovieDetails()
+            sharedViewModel.closeMovieDetails()
         }
 
         viewModel.movie.observe(viewLifecycleOwner) { movie ->
