@@ -74,6 +74,7 @@ class FragmentMoviesDetails : Fragment() {
             sharedViewModel.closeMovieDetails()
         }
 
+
         viewModel.movie.observe(viewLifecycleOwner) { movie ->
             movie?.let { setMovieData(it) }
         }

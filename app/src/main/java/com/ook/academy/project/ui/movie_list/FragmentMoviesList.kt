@@ -15,7 +15,7 @@ import com.ook.academy.project.ui.SharedMainViewModel
 
 class FragmentMoviesList : Fragment(), IMovieListCallback {
     private lateinit var loader: View
-    private lateinit var list: RecyclerView
+    private lateinit var adapter: MovieAdapter
     private lateinit var viewModel: MoviesListViewModel
     private lateinit var sharedViewModel: SharedMainViewModel
 
@@ -27,7 +27,9 @@ class FragmentMoviesList : Fragment(), IMovieListCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        list = view.findViewById(R.id.list)
+        val list = view.findViewById<RecyclerView>(R.id.list)
+        adapter = MovieAdapter(this@FragmentMoviesList)
+        list.adapter = adapter
         loader = view.findViewById(R.id.loader)
 
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedMainViewModel::class.java)
@@ -48,15 +50,11 @@ class FragmentMoviesList : Fragment(), IMovieListCallback {
     }
 
     private fun setMovies(movies: List<Movie>) {
-        list.adapter = MovieAdapter(this@FragmentMoviesList, movies)
-    }
-
-    private fun openMoviesDetails(movie: Movie) {
-        sharedViewModel.openMovieDetails(movie.id)
+        adapter.setData(movies)
     }
 
     override fun openMovie(movie: Movie) {
-        openMoviesDetails(movie)
+        sharedViewModel.openMovieDetails(movie.id)
     }
 
 }
