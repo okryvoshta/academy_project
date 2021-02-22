@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ook.academy.project.data.Actor
 
-class ActorAdapter(val actors: List<Actor>) : RecyclerView.Adapter<ActorViewHolder>() {
+class ActorAdapter(private val actors: List<Actor>) : RecyclerView.Adapter<ActorViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorViewHolder {
         return ActorViewHolder(
@@ -33,7 +33,7 @@ class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(data: Actor) {
         Glide.with(coverImageView).load(data.picture).into(coverImageView)
-        nameTextView.setText(data.name)
+        nameTextView.text = data.name
     }
 }
 
